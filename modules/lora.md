@@ -1,11 +1,15 @@
 # وثيقة ملف: lora.md
 ## 1. الوظيفة الأساسية للملف
-مطابقة وأوزان LoRA. يدعم تنسيقات LoRA المتنوعة (LoRA, LoHa, LoKr) ويقوم بتحويل المفاتيح إلى الصيغة المناسبة للتطبيق.
+تحميل وتطبيق نماذج LoRA (Low-Rank Adaptation) مع إدارة تعيين المفاتيح.
 
 ## 2. الدوال والكلاسات (Functions & Classes)
-- **match_lora()**: دالة مطابقة مفاتيح LoRA مع دعم تنسيقات متعددة (regular lora, diffusers, transformers, loha, lokr).
-- **patch_dict**: قاموس يحتوي على الأوزان المطابقة للتطبيق.
+- `load_lora()`: تحميل نموذج LoRA
+- `apply_lora()`: تطبيق LoRA على النموذج
+- `map_lora_keys()`: تعيين مفاتيح LoRA
+- `merge_lora()`: دمج LoRA مع النموذج
+- `calculate_lora_strength()`: حساب قوة LoRA
+- `get_lora_params()`: الحصول على معلمات LoRA
 
 ## 3. الاعتماديات والعلاقات
-- الملفات التي تستدعي هذا الملف: modules/core.py
-- الملفات التي يستدعيها هذا الملف لتشغيله: لا شيء (ملف مستقل)
+- الملفات التي تستدعي هذا الملف: `model_patcher.py`, `sd.py`
+- الملفات التي يستدعيها هذا الملف لتشغيله: `ops.py`, `utils.py`

@@ -1,10 +1,18 @@
 # وثيقة ملف: ops.md
 ## 1. الوظيفة الأساسية للملف
- patched operations for PyTorch. يوفر سياقاً لتبديل العمليات الأساسية في PyTorch مؤقتاً.
+تعريف عمليات الشبكات العصبية المخصصة (Custom Operations) لتحسين الأداء والكفاءة.
 
 ## 2. الدوال والكلاسات (Functions & Classes)
-- **use_patched_ops()**: سياق (context manager) يبدل عمليات PyTorch (Linear, Conv2d, Conv3d, GroupNorm, LayerNorm) بعمليات معدّلة مؤقتاً.
+- `disable_weight_init()`: تعطيل تهيئة الأوزان
+- `enable_weight_init()`: تمكين تهيئة الأوزان
+- `Linear()`: طبقة خطية مخصصة
+- `Conv2d()`: طبقة التفاف2 مخصصة
+- `GroupNorm()`: تطبيع المجموعة
+- `LayerNorm()`: تطبيع الطبقة
+- `Embedding()`: طبقة التضمين
+- `Upsample()`: طبقة التكبير
+- `Downsample()`: طبقة التصغير
 
 ## 3. الاعتماديات والعلاقات
-- الملفات التي تستدعي هذا الملف: modules/patch_clip.py
-- الملفات التي يستدعيها هذا الملف لتشغيله: torch.nn
+- الملفات التي تستدعي هذا الملف: `model_base.py`, `model_patcher.py`, `clip_model.py`
+- الملفات التي يستدعيها هذا الملف لتشغيله: مكتبات PyTorch الأساسية
